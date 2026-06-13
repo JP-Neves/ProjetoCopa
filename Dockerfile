@@ -1,18 +1,19 @@
-# Usa a imagem oficial completa do SDK 9.0
+## Usa a imagem oficial mais recente do SDK do .NET 9
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
-# Copia tudo para o container
-COPY . .
-
-# Restaura e publica explicitamente
+# Copia os ficheiros do projeto
+COPY *.csproj ./
 RUN dotnet restore
+
+# Copia tudo e publica
+COPY . ./
 RUN dotnet publish -c Release -o out
 
-# Usa a imagem oficial do ASP.NET 9.0
+# Usa a imagem do runtime do .NET 9
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
 COPY --from=build /app/out .
 
-# Comando de entrada
+# Define o entrypoint
 ENTRYPOINT ["dotnet", "ProjetoCopa.dll"]
