@@ -1,9 +1,18 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcrFROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
-COPY . .
+
+# Copia os arquivos de projeto e restaura dependências
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copia o restante dos arquivos e faz o publish
+COPY . ./
 RUN dotnet publish -c Release -o out
 
+# Gera a imagem final
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/out .
+
+# Este comando procura automaticamente o .dll do seu projeto
 ENTRYPOINT ["dotnet", "ProjetoCopa.dll"]
