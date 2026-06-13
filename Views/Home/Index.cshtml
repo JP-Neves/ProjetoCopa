@@ -1,0 +1,32 @@
+﻿<div class="container-fluid p-0">
+    <div class="row g-0">
+        <div class="col-md-4 sidebar-fixa">
+            <div class="p-4 text-center">
+                <div class="moldura-destaque shadow-lg mb-3">
+                    <img src="/images/VÓ.jpeg" class="img-fluid" alt="Vó Maria" />
+                </div>
+                <h2 class="text-primary fw-bold">Vó Maria</h2>
+                <div class="texto-familia mt-4">
+                    "Com origem em Minas Gerais, a matriarca da família Maria vem com sua forte escalação que atravessa gerações."
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 p-4">
+            <div class="row g-3">
+                @foreach (var fig in Model)
+                {
+                    @if (fig.Id > 0)
+                    {
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="figurinha-card text-center">
+                                <img src="/images/@(fig.Id.ToString("D3")).jpeg" class="img-fluid" />
+                                <small class="mt-2 d-block">❄️❄️❄️</small>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

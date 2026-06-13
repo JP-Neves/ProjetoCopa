@@ -1,0 +1,71 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color: floralwhite;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+/* Faz a coluna da esquerda ficar parada na tela */
+.sidebar-fixa {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    border-right: 5px solid #009B3A; /* Borda lateral verde */
+    overflow-y: auto;
+}
+
+/* Estilo da foto da Vó Maria */
+.moldura-destaque {
+    border: 8px solid #FFDF00; /* Borda amarela grossa */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Estilo do texto */
+.texto-familia {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #333;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    border-left: 10px solid #002776; /* Azul Brasil */
+}
+
+/* Estilo das figurinhas na grade */
+.figurinha-card {
+    transition: transform 0.2s;
+    background: whitesmoke;
+    padding: 5px;
+    border: 10px solid #ddd;
+}
+.figurinha-card:hover {
+        transform: scale(1.05);
+    }
